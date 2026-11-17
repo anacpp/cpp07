@@ -10,4 +10,12 @@ void swap(T &first, T &second)
 	second = temporary;
 }
 
+template <typename T>
+const T &min(const T &first, const T &second)
+{
+	if (first < second)
+		return first;
+	return second;
+}
+
 #endif
