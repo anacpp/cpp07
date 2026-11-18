@@ -13,9 +13,9 @@ void swap(T &first, T &second)
 template <typename T>
 const T &min(const T &first, const T &second)
 {
-	if (first < second)
-		return first;
-	return second;
+	const T *selection[2] = {&second, &first};
+
+	return *selection[first < second];
 }
 
 template <typename T>
