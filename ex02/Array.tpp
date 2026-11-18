@@ -38,6 +38,20 @@ Array<T> &Array<T>::operator=(const Array &source)
 }
 
 template <typename T>
+T &Array<T>::operator[](unsigned int index)
+{
+	verifyIndex(index);
+	return _elements[index];
+}
+
+template <typename T>
+const T &Array<T>::operator[](unsigned int index) const
+{
+	verifyIndex(index);
+	return _elements[index];
+}
+
+template <typename T>
 unsigned int Array<T>::size(void) const
 {
 	return _size;
@@ -53,4 +67,11 @@ void Array<T>::exchange(Array &other)
 	_size = other._size;
 	other._elements = elements;
 	other._size = size;
+}
+
+template <typename T>
+void Array<T>::verifyIndex(unsigned int index) const
+{
+	if (index >= _size)
+		throw std::exception();
 }

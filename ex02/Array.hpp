@@ -1,6 +1,8 @@
 #ifndef ARRAY_HPP
 # define ARRAY_HPP
 
+# include <exception>
+
 template <typename T>
 class Array
 {
@@ -11,10 +13,13 @@ public:
 	~Array(void);
 	Array &operator=(const Array &source);
 
+	T &operator[](unsigned int index);
+	const T &operator[](unsigned int index) const;
 	unsigned int size(void) const;
 
 private:
 	void exchange(Array &other);
+	void verifyIndex(unsigned int index) const;
 
 	T *_elements;
 	unsigned int _size;
