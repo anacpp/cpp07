@@ -4,10 +4,10 @@
 template <typename T>
 void swap(T &first, T &second)
 {
-	T temporary = first;
+	T rotation[2] = {second, first};
 
-	first = second;
-	second = temporary;
+	first = rotation[0];
+	second = rotation[1];
 }
 
 template <typename T>
